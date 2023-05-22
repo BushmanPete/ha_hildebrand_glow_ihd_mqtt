@@ -145,7 +145,7 @@ ELECTRICITY_SENSORS = [
     "name": "Smart Meter Electricity: Cost (Today)",
     "device_class": SensorDeviceClass.MONETARY,
     "unit_of_measurement": "GBP",
-    "state_class": SensorStateClass.TOTAL,
+    "state_class": SensorStateClass.TOTAL_INCREASING,
     "icon": "mdi:cash",
     "func": lambda js : round(js['electricitymeter']['energy']['import']['price']['standingcharge'] + \
        (js['electricitymeter']['energy']['import']['day'] * js['electricitymeter']['energy']['import']['price']['unitrate']), 2),
@@ -250,7 +250,7 @@ GAS_SENSORS = [
     "name": "Smart Meter Gas: Cost (Today)",
     "device_class": SensorDeviceClass.MONETARY,
     "unit_of_measurement": "GBP",
-    "state_class": SensorStateClass.TOTAL,
+    "state_class": SensorStateClass.TOTAL_INCREASING,
     "icon": "mdi:cash",
     "func": lambda js : round((js['gasmeter']['energy']['import']['price']['standingcharge'] or 0)+ \
        ((js['gasmeter']['energy']['import']['day'] or 0) * (js['gasmeter']['energy']['import']['price']['unitrate'] or 0)), 2),
